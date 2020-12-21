@@ -1,0 +1,21 @@
+{
+    "name": "dalholm/omnipay-klarna",
+    "type": "library",
+    "description": "Klarna Checkout gateway for Omnipay payment processing library",
+    "keywords": ["Klarna","Klarna Checkout", "Omnipay"],
+    "homepage": "https://github.com/dalholm/omnipay-klarna",
+    "license": "MIT",
+    "autoload": {
+        "psr-4" : {
+            "Dalholm\\Omnipay\\Klarna\\" : "src/",
+            "Dalholm\\Tests\\Omnipay\\Klarna\\" : "tests/"
+        }
+    },
+    "require": {
+        "omnipay/common": "^2.0||^3.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "^2.0||^3.0"
+    },
+    "prefer-stable": true
+}
