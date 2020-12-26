@@ -31,7 +31,7 @@ trait MerchantUrlsDataTrait
      */
     public function getMerchantUrls(): array
     {
-        $this->validate('notifyUrl', 'returnUrl', 'termsUrl', 'validationUrl');
+        $this->validate('notifyUrl', 'returnUrl', 'termsUrl');
 
         $returnUrl = $this->getReturnUrl();
 
