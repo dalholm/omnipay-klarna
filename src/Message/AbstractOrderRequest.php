@@ -172,14 +172,26 @@ abstract class AbstractOrderRequest extends AbstractRequest
         return $this;
     }
 
+    public function setMerchantData(array $data)
+    {
+        $this->setParameter('merchant_data', serialize($data));
+
+        return $this;
+    }
+
+    public function getMerchantData()
+    {
+        return $this->getParameter('merchant_data');
+    }
+
     /**
      * @return array
      */
     protected function getOrderData(): array
     {
         $data = [
-            'order_amount' => $this->getAmountInteger(),
-            'order_tax_amount' => null === $this->getTaxAmount() ? 0 : (int) $this->getTaxAmount()->getAmount(),
+            'order_amount' => (int) $this->getAmount(),
+            'order_tax_amount' => (int) $this->getTaxAmount(),
             'order_lines' => $this->getItemData($this->getItems() ?? new ItemBag()),
             'purchase_currency' => $this->getCurrency(),
             'purchase_country' => $this->getPurchaseCountry(),
@@ -216,6 +228,11 @@ abstract class AbstractOrderRequest extends AbstractRequest
         if (null !== $customer = $this->getCustomer()) {
             $data['customer'] = $customer->getArrayCopy();
         }
+
+        if (null !== $merchantData = $this->getMerchantData()) {
+            $data['merchant_data'] = $merchantData;
+        }
+
 
         $guiOptions = [];
 

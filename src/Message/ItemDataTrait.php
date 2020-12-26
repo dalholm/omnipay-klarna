@@ -18,27 +18,18 @@ trait ItemDataTrait
         $orderLines = [];
 
         foreach ($items as $item) {
-            $taxRate = $item->getTaxRate();
-            $price = null === $item->getPrice() ? $this->convertToMoney(0) : $this->convertToMoney($item->getPrice());
-            $totalTaxAmount = null === $item->getTotalTaxAmount()
-                ? $this->convertToMoney(0)
-                : $this->convertToMoney($item->getTotalTaxAmount());
-            $totalDiscountAmount = null === $item->getTotalDiscountAmount()
-                ? $this->convertToMoney(0)
-                : $this->convertToMoney($item->getTotalDiscountAmount());
-            $totalAmount = null === $item->getTotalAmount()
-                ? $price->multiply($item->getQuantity())->subtract($totalDiscountAmount)
-                : $this->convertToMoney($item->getTotalAmount());
 
+            $totalAmount = ($item->getQuantity() * $item->getPrice()) - $item->getTotalDiscountAmount();
             $orderLines[] = [
                 'type' => $item->getType(),
+                'reference' => $item->getReference(),
                 'name' => $item->getName(),
                 'quantity' => $item->getQuantity(),
-                'tax_rate' => null === $taxRate ? 0 : (int) ($item->getTaxRate() * 100),
-                'total_amount' => (int) $totalAmount->getAmount(),
-                'total_tax_amount' => (int) $totalTaxAmount->getAmount(),
-                'total_discount_amount' => (int) $totalDiscountAmount->getAmount(),
-                'unit_price' => (int) $price->getAmount(),
+                'tax_rate' => (int) $item->getTaxRate(),
+                'total_amount' => (int) $totalAmount,
+                'total_tax_amount' => (int) $item->getTotalTaxAmount(),
+                'total_discount_amount' => (int) $item->getTotalDiscountAmount(),
+                'unit_price' => (int) $item->getPrice(),
                 'merchant_data' => $item->getMerchantData(),
             ];
         }

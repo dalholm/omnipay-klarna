@@ -24,11 +24,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     public function getAmount()
     {
-        if (null === $amount = $this->getParameter('amount')) {
-            return null;
-        }
-
-        return $this->convertToMoney($amount);
+        return $this->getParameter('amount');
     }
 
     /**
@@ -88,11 +84,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     public function getTaxAmount()
     {
-        if (null === $amount = $this->getParameter('tax_amount')) {
-            return null;
-        }
-
-        return $this->convertToMoney($amount);
+        return $this->getParameter('tax_amount');
     }
 
     /**

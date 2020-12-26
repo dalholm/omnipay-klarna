@@ -15,6 +15,8 @@ final class Customer extends \ArrayObject
         $defaults = [
             'date_of_birth' => null,
             'type' => 'person',
+            'organization_registration_id' => '',
+            'vat_id' => '',
         ];
 
         return new self(array_merge($defaults, array_intersect_key($data, $defaults)));
