@@ -7,6 +7,8 @@ Klarna checkout gateway for omnipay
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.6+. This package implements Klarna Checkout support for Omnipay.
 
+This package supports PHP 8
+
 ## Installation
 
 To install, simply add it to your `composer.json` file:
