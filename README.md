@@ -126,6 +126,22 @@ The response will contain the updated order data.
 
 [API documentation](https://developers.klarna.com/api/#checkout-api-update-an-order)
 
+### Update Merchant References
+
+While an order has not been authorized (completed) by the client, it may be updated:
+
+```php
+$response = $gateway->updateMerchantReferences([
+    'transactionReference' => 'a5bec272-d68d-4df9-9fdd-8e35e51f92ab',
+    'merchant_reference1' => (String) 'Your reference or order id',
+    'merchant_reference2' => (String) 'Another reference or order id',
+])->send();
+```
+
+Response will be an Empty response (204)
+
+[API documentation](https://developers.klarna.com/api/#order-management-api-update-merchant-references)
+
 ### Extend authorization
 
 Klarna order authorization is valid until a specific date, and may be extended (up to a maximum of 180 days).
