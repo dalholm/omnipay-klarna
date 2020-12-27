@@ -10,6 +10,7 @@ use Dalholm\Omnipay\Klarna\Message\ExtendAuthorizationRequest;
 use Dalholm\Omnipay\Klarna\Message\FetchTransactionRequest;
 use Dalholm\Omnipay\Klarna\Message\RefundRequest;
 use Dalholm\Omnipay\Klarna\Message\UpdateCustomerAddressRequest;
+use Dalholm\Omnipay\Klarna\Message\UpdateMerchantReferencesRequest;
 use Dalholm\Omnipay\Klarna\Message\UpdateTransactionRequest;
 use Dalholm\Omnipay\Klarna\Message\VoidRequest;
 use Omnipay\Common\AbstractGateway;
@@ -189,6 +190,11 @@ final class Gateway extends AbstractGateway implements GatewayInterface
     public function updateTransaction(array $options = []): RequestInterface
     {
         return $this->createRequest(UpdateTransactionRequest::class, $options);
+    }
+
+    public function updateMerchantReferences(array $options = []): RequestInterface
+    {
+        return $this->createRequest(UpdateMerchantReferencesRequest::class, $options);
     }
 
     /**
