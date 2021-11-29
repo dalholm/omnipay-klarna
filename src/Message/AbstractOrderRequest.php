@@ -184,6 +184,18 @@ abstract class AbstractOrderRequest extends AbstractRequest
         return $this->getParameter('merchant_data');
     }
 
+    public function setAttachment(array $data)
+    {
+        $this->setParameter('attachment', $data);
+
+        return $this;
+    }
+
+    public function getAttachment()
+    {
+        return $this->getParameter('attachment');
+    }
+
     /**
      * @return array
      */
@@ -233,6 +245,9 @@ abstract class AbstractOrderRequest extends AbstractRequest
             $data['merchant_data'] = $merchantData;
         }
 
+        if (null !== $attachment = $this->getAttachment()) {
+            $data['attachment'] = $attachment;
+        }
 
         $guiOptions = [];
 
