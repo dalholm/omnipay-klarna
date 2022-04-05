@@ -1,6 +1,6 @@
 # Omnipay: Klarna
 
-This package is a modified version of [omnipay-klarna-checkout](https://github.com/MyOnlineStore/omnipay-klarna-checkout). With this package you can run on Laravel 8 and PHP 8. This package will also contain more functinallity then the original package.
+This package is a modified version of [omnipay-klarna-checkout](https://github.com/MyOnlineStore/omnipay-klarna-checkout) by [nyehandel](https://nyehandel.se) and [Intflow](https://intflow.se). With this package you can run on Laravel 8 and PHP 8. This package will also contain more functinallity then the original package.
 
 ## Introduction
 
