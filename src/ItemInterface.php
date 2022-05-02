@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dalholm\Omnipay\Klarna;
@@ -44,4 +45,18 @@ interface ItemInterface extends \Omnipay\Common\ItemInterface
      * @return string|null
      */
     public function getType();
+
+    /**
+     * Product reference
+     *
+     * @return string|null
+     */
+    public function getReference();
+
+    /**
+     * Item image url
+     *
+     * @return string|null
+     */
+    public function getImageUrl();
 }

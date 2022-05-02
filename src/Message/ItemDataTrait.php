@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dalholm\Omnipay\Klarna\Message;
@@ -18,12 +19,12 @@ trait ItemDataTrait
         $orderLines = [];
 
         foreach ($items as $item) {
-
             $totalAmount = ($item->getQuantity() * $item->getPrice()) - $item->getTotalDiscountAmount();
             $orderLines[] = [
                 'type' => $item->getType(),
                 'reference' => $item->getReference(),
                 'name' => $item->getName(),
+                'image_url' => $item->getImageUrl(),
                 'quantity' => $item->getQuantity(),
                 'tax_rate' => (int) $item->getTaxRate(),
                 'total_amount' => (int) $totalAmount,
@@ -33,7 +34,6 @@ trait ItemDataTrait
                 'merchant_data' => $item->getMerchantData(),
             ];
         }
-
         return $orderLines;
     }
 

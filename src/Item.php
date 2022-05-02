@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dalholm\Omnipay\Klarna;
@@ -52,6 +53,24 @@ final class Item extends \Omnipay\Common\Item implements ItemInterface
     {
         return $this->getParameter('type');
     }
+
+    //Dan added suppoort for item-urls
+    /**
+     * @inheritDoc
+     */
+    public function getImageUrl()
+    {
+        return $this->getParameter('image_url');
+    }
+
+    /**
+     * @param string $data
+     */
+    public function setImageUrl($data)
+    {
+        $this->setParameter('image_url', $data);
+    }
+    //Dan added suppoort for item-urls
 
     /**
      * @param string $data
