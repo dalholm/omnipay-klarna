@@ -96,6 +96,14 @@ abstract class AbstractRequest extends BaseAbstractRequest
     }
 
     /**
+     * @return string|null
+     */
+    public function getUserAgent()
+    {
+        return $this->getParameter('user_agent');
+    }
+
+    /**
      * @param string $region
      *
      * @return $this
@@ -191,6 +199,18 @@ abstract class AbstractRequest extends BaseAbstractRequest
     public function setUsername(string $username): self
     {
         $this->setParameter('username', $username);
+
+        return $this;
+    }
+
+    /**
+     * @param string $userAgent
+     *
+     * @return $this
+     */
+    public function setUserAgent(string $userAgent): self
+    {
+        $this->setParameter('user_agent', $userAgent);
 
         return $this;
     }

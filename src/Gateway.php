@@ -90,6 +90,7 @@ final class Gateway extends AbstractGateway implements GatewayInterface
             'secret' => '',
             'testMode' => true,
             'username' => '',
+            'user_agent' => '',
         ];
     }
 
@@ -115,6 +116,14 @@ final class Gateway extends AbstractGateway implements GatewayInterface
     public function getUsername(): string
     {
         return $this->getParameter('username');
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAgent(): string
+    {
+        return $this->getParameter('user_agent');
     }
 
     /**
@@ -169,6 +178,18 @@ final class Gateway extends AbstractGateway implements GatewayInterface
     public function setUsername(string $username): self
     {
         $this->setParameter('username', $username);
+
+        return $this;
+    }
+
+    /**
+     * @param string $userAgent
+     *
+     * @return $this
+     */
+    public function setUserAgent(string $userAgent): self
+    {
+        $this->setParameter('user_agent', $userAgent);
 
         return $this;
     }

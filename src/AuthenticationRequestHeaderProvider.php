@@ -9,7 +9,7 @@ final class AuthenticationRequestHeaderProvider
 {
     public function getHeaders(AbstractRequest $request): array
     {
-        return [
+        $headers = [
             'Authorization' => sprintf(
                 'Basic %s',
                 base64_encode(
@@ -21,5 +21,11 @@ final class AuthenticationRequestHeaderProvider
                 )
             ),
         ];
+
+        if ($request->getUserAgent() != '') {
+            $headers['User-Agent'] = $request->getUserAgent();
+        }
+
+        return $headers;
     }
 }
