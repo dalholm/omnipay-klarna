@@ -5,6 +5,7 @@ namespace Dalholm\Omnipay\Klarna;
 
 use Dalholm\Omnipay\Klarna\Message\AcknowledgeRequest;
 use Dalholm\Omnipay\Klarna\Message\AuthorizeRequest;
+use Dalholm\Omnipay\Klarna\Message\CancelRequest;
 use Dalholm\Omnipay\Klarna\Message\CaptureRequest;
 use Dalholm\Omnipay\Klarna\Message\ExtendAuthorizationRequest;
 use Dalholm\Omnipay\Klarna\Message\FetchTransactionRequest;
@@ -54,6 +55,14 @@ final class Gateway extends AbstractGateway implements GatewayInterface
     public function capture(array $options = [])
     {
         return $this->createRequest(CaptureRequest::class, $options);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function cancel(array $options = [])
+    {
+        return $this->createRequest(CancelRequest::class, $options);
     }
 
     /**
