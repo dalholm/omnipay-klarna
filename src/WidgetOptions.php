@@ -22,6 +22,7 @@ final class WidgetOptions extends \ArrayObject
             'color_header' => null,
             'color_link' => null,
             'date_of_birth_mandatory' => false,
+            'national_identification_number_mandatory' => false,
             'shipping_details' => null,
             'title_mandatory' => false,
             'additional_checkbox' => null,
