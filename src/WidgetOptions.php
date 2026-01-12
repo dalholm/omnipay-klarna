@@ -31,6 +31,7 @@ final class WidgetOptions extends \ArrayObject
             'require_validate_callback_success' => false,
             'allow_global_billing_countries' => false,
             'allowed_customer_types' => ["person","organization"],
+            'verify_age' => null,
         ];
 
         return new self(array_merge($defaults, array_intersect_key($data, $defaults)));
