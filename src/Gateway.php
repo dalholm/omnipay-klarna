@@ -140,6 +140,14 @@ final class Gateway extends AbstractGateway implements GatewayInterface
     }
 
     /**
+     * @return string
+     */
+    public function getPartnerId(): string
+    {
+        return $this->getParameter('partner_id');
+    }
+
+    /**
      * @inheritDoc
      */
     public function initialize(array $parameters = [])
@@ -203,6 +211,18 @@ final class Gateway extends AbstractGateway implements GatewayInterface
     public function setUserAgent(string $userAgent): self
     {
         $this->setParameter('user_agent', $userAgent);
+
+        return $this;
+    }
+
+    /**
+     * @param string $partnerId
+     *
+     * @return $this
+     */
+    public function setparterId(string $partnerId): self
+    {
+        $this->setParameter('partner_id', $partnerId);
 
         return $this;
     }

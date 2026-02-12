@@ -27,7 +27,7 @@ final class AuthenticationRequestHeaderProvider
         }
 
         if ($request->getPartnerId() != '') {
-            $headers['Partner-Id'] = $request->getPartnerId();
+            $headers['Kustom-Partner'] = $request->getPartnerId();
         }
 
         return $headers;
