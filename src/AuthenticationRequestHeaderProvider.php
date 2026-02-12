@@ -26,6 +26,10 @@ final class AuthenticationRequestHeaderProvider
             $headers['User-Agent'] = $request->getUserAgent();
         }
 
+        if ($request->getPartnerId() != '') {
+            $headers['Partner-Id'] = $request->getPartnerId();
+        }
+
         return $headers;
     }
 }

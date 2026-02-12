@@ -104,6 +104,14 @@ abstract class AbstractRequest extends BaseAbstractRequest
     }
 
     /**
+     * @return string|null
+     */
+    public function getPartnerId()
+    {
+        return $this->getParameter('partner_id');
+    }
+
+    /**
      * @param string $region
      *
      * @return $this
@@ -211,6 +219,18 @@ abstract class AbstractRequest extends BaseAbstractRequest
     public function setUserAgent(string $userAgent): self
     {
         $this->setParameter('user_agent', $userAgent);
+
+        return $this;
+    }
+
+    /**
+     * @param string $partnerId
+     *
+     * @return $this
+     */
+    public function setPartnerId(string $partnerId): self
+    {
+        $this->setParameter('partner_id', $partnerId);
 
         return $this;
     }
