@@ -1,9 +1,9 @@
 {
-    "name": "dalholm/omnipay-klarna",
+    "name": "pigmentab/omnipay-klarna",
     "type": "library",
     "description": "Klarna Checkout gateway for Omnipay payment processing library",
     "keywords": ["Klarna","Klarna Checkout", "Omnipay"],
-    "homepage": "https://github.com/dalholm/omnipay-klarna",
+    "homepage": "https://github.com/pigmentGit/omnipay-klarna",
     "license": "MIT",
     "autoload": {
         "psr-4" : {
